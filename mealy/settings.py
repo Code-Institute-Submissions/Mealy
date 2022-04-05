@@ -30,9 +30,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["mealy-app.herokuapp.com", "localhost"]
+DEBUG = development
+if development:
+    ALLOWED_HOSTS = ["localhost"]
+else:
+    ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
 # Application definition
 
