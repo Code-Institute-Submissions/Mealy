@@ -1,1 +1,1 @@
-web: gunicorn mealy.wsgi:application
+web: gunicorn mealy.wsgi
