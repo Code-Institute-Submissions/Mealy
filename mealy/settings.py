@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # temp
 DEBUG = True
 
-ALLOWED_HOSTS = ["mealy-app.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["mealy-app.herokuapp.com", "127.0.0.1"]
 
 # DEBUG = development
 # if development:
