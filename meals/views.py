@@ -6,5 +6,5 @@ from .models import Meal
 # Create your views here.
 class MealList(generic.ListView):
     model = Meal
-    planned_meals = Meal.objects.order_by("-planned")
+    queryset = Meal.objects.order_by("-planned")
     template_name = "index.html"
