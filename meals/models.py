@@ -9,6 +9,8 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ["-in_stock"]
 
 
 class Meal(models.Model):
@@ -20,3 +22,6 @@ class Meal(models.Model):
     
     def __str__(self):
         return self.meal_name
+
+    class Meta:
+        ordering = ["-planned"]
