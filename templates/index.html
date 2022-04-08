@@ -4,10 +4,12 @@
   <div class="row">
     <!-- Meal Entries Column -->
     {% for meal in meal_list %}
-    <div class="col-12 m-3">
-      <div class="card">
-        <div class="card-body">
+    <div class="col-12">
+      <div class="card bg-secondary bg-gradient bg-opacity-50">
+        <div class="card-header">
           <h4 class="card-title">{{ meal.meal_name }}</h4>
+        </div>
+        <div class="card-body">
           <p class="card-text">TODO MEAL DESCRIPTION IN DB</p>
           <button class="btn btn-primary mb-3" type="button">
             add to list

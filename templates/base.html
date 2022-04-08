@@ -37,10 +37,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
-  <body class="d-flex flex-column h-100 main-bg">
+  <body class="d-flex flex-column h-100 bg-light">
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Mealy</a>
         <button
@@ -77,19 +77,18 @@
             </li>
             {% endif %}
           </ul>
-          <span class="navbar-text text-muted">Making Meals Simple</span>
         </div>
       </div>
     </nav>
 
-    <main class="flex-shrink-0 main-bg">
+    <main class="flex-shrink-0">
       {% block content %} {% endblock content %}
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-      <p class="m-0 text-center text-white">Made by a man who likes Meals</p>
-      <p class="m-0 text-center text-white">
+    <footer class="footer mt-auto py-3 bg-success">
+      <p class="m-0 text-center">Making Meals Simple</p>
+      <p class="m-0 text-center">
         Follow us: <i class="fab fa-github-square ms-3"></i>
         <i class="fab fa-twitter-square ms-3"></i>
         <i class="fab fa-linkedin ms-3"></i>
