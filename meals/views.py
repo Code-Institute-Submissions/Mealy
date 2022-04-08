@@ -12,5 +12,5 @@ class MealList(generic.ListView):
 
 class ingredient_list(generic.ListView):
     model = Ingredient
-    queryset = Ingredient.objects.order_by("in_stock")
+    queryset = Ingredient.objects.order_by("-in_stock")
     template_name = "list.html"

@@ -2,11 +2,11 @@
 
 <div class="container-fluid">
   <div class="row">
-    <h1 class="text-center mt-4">Your Meals</h1>
+    <h1 class="text-center text-light mt-4">Your Meals</h1>
     <!-- Meal Entries Column -->
     {% for meal in meal_list %}
     <div class="col-12">
-      <div class="card bg-secondary bg-gradient bg-opacity-50 my-3">
+      <div class="card bg-light my-3">
         <div class="card-header">
           <h4 class="card-title">{{ meal.meal_name }}</h4>
           <i class="fas fa-backspace float-end"></i>
