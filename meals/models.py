@@ -16,5 +16,7 @@ class Meal(models.Model):
     planned = models.BooleanField(default=False)
     ingredients = models.ManyToManyField(Ingredient,blank=True)
     meal_description = models.TextField(max_length=1000, default="Yummy meal description goes here")
+    
+    
     def __str__(self):
         return self.meal_name
