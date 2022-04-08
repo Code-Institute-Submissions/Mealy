@@ -10,7 +10,7 @@ class MealList(generic.ListView):
     template_name = "index.html"
 
 
-class ingredient_list(generic.ListView):
-    model = Ingredient
-    queryset = Ingredient.objects.order_by("-in_stock")
+class ShopList(generic.ListView):
+    model = Meal
+    queryset = Meal.objects.all()
     template_name = "list.html"
