@@ -4,7 +4,7 @@
     <h1 class="text-center text-light mt-4">Shopping List</h1>
   <div class="row">
     <ul id="ingredients-list" class="list-group col-12 px-2 pt-4">
-      {% for meal in meal_list %}
+      {% for meal in user_meals %}
         {% if meal.planned %}
           {% for ingredient in meal.ingredients.all %}
             <li class="list-group-item">
