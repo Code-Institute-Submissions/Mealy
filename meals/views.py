@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Meal, Ingredient
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from .forms import MealForm
 
 
 # Create your views here.
@@ -14,7 +15,8 @@ class MealList(LoginRequiredMixin, generic.ListView):
         user = User.objects.get(pk=self.request.user.pk)
         user_meals = Meal.objects.filter(user=user)
         context = {
-            'user_meals': user_meals,
+            "user_meals": user_meals,
+            "meal_form": MealForm()
         }
         return render(request, self.template_name, context)
     
