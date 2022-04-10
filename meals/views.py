@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .forms import MealForm, IngredientForm
 
 def toggle_planned(request, meal_id):
+    """toggles planned meal bool"""
     meal = get_object_or_404(Meal, id=meal_id)
     if meal.planned:
         meal.planned = False
@@ -18,11 +19,13 @@ def toggle_planned(request, meal_id):
         return redirect("home")
 
 def delete_meal(request, meal_id):
+    """deletes meal"""
     meal = get_object_or_404(Meal, id=meal_id)
     meal.delete()
     return redirect("home")
 
 def add_ingredient(request):
+    """add ingredients"""
     if request.method == "POST":
         form = IngredientForm(request.POST)
         if form.is_valid():
@@ -35,6 +38,8 @@ def add_ingredient(request):
 
 # Create your views here.
 class MealList(LoginRequiredMixin, generic.ListView):
+    """meal list for home page. also
+    features meal form creation"""
     model = Meal
     template_name = "index.html"
 
@@ -68,6 +73,7 @@ class MealList(LoginRequiredMixin, generic.ListView):
         
     
 class ShopList(LoginRequiredMixin, generic.ListView):
+    """shopping list view"""
     model = Meal
     template_name = "list.html"
 
