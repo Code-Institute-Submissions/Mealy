@@ -6,8 +6,8 @@
     <ul id="ingredients-list" class="list-group col-12 px-2 pt-4">
       {% for meal in user_meals %}
         {% if meal.planned %}
-          {% for ingredient in meal.ingredients.all %}
-            <li class="list-group-item">
+          {% for ingredient in meal.ingredients.all|dictsort:"in_stock" %}
+            <li class="list-group-item" id="{ ingredient.name }">
               <div class="form-check">
                 <input
                   id="{{ ingredient.name }}-checkbox"
@@ -17,7 +17,7 @@
                   checked
                   {% endif %}
                 /><label class="form-check-label" for="{{ ingredient.name }}"
-                  >{{ ingredient.name }}</label
+                  >{{ ingredient.name }} for: <strong>{{ meal.meal_name }}</strong></label
                 >
               </div>
             </li>
