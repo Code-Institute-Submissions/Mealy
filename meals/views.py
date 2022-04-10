@@ -3,7 +3,7 @@ from django.views import generic
 from .models import Meal, Ingredient
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .forms import MealForm
+from .forms import MealForm, IngredientForm
 
 def toggle_planned(request, meal_id):
     meal = get_object_or_404(Meal, id=meal_id)
@@ -21,6 +21,16 @@ def delete_meal(request, meal_id):
     meal = get_object_or_404(Meal, id=meal_id)
     meal.delete()
     return redirect("home")
+
+def add_ingredient(request):
+    if request.method == "POST":
+        form = IngredientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    form = IngredientForm()
+    context = {"ingredient_form": form}
+    return render(request, "index.html", context)
 
 
 # Create your views here.
@@ -55,6 +65,7 @@ class MealList(LoginRequiredMixin, generic.ListView):
             meal_form = MealForm()
         return render(request, self.template_name, context)
 
+        
     
 class ShopList(LoginRequiredMixin, generic.ListView):
     model = Meal
