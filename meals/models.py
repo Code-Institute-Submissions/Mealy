@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Ingredient(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     in_stock = models.BooleanField(default=False)
 
     def __str__(self):
