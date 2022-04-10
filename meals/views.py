@@ -33,6 +33,7 @@ class MealList(LoginRequiredMixin, generic.ListView):
             meal_form.instance.user = request.user
             meal = meal_form.save(commit=False)
             meal.save()
+            meal_form.save_m2m()
         else:
             meal_form = MealForm()
         return render(request, self.template_name, context)
