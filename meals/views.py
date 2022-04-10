@@ -1,10 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Meal, Ingredient
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .forms import MealForm
 
+def toggle_planned(request, meal_id):
+    meal = get_object_or_404(Meal, id=meal_id)
+    if meal.planned:
+        meal.planned = False
+        meal.save()
+        return redirect("home")
+
+    if meal.planned is False:
+        meal.planned = True
+        meal.save()
+        return redirect("home")
 
 # Create your views here.
 class MealList(LoginRequiredMixin, generic.ListView):
@@ -37,8 +48,8 @@ class MealList(LoginRequiredMixin, generic.ListView):
         else:
             meal_form = MealForm()
         return render(request, self.template_name, context)
-    
 
+    
 class ShopList(LoginRequiredMixin, generic.ListView):
     model = Meal
     template_name = "list.html"
@@ -50,3 +61,9 @@ class ShopList(LoginRequiredMixin, generic.ListView):
             'user_meals': user_meals,
         }
         return render(request, self.template_name, context)
+
+
+
+
+
+
