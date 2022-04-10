@@ -9,8 +9,9 @@
       <div class="card bg-light my-3">
         <div class="card-header">
           <h4 class="card-title">{{ meal.meal_name }}</h4>
-          <i class="fas fa-backspace float-end"></i>
-          <i class="fas fa-edit float-end"></i>
+          <a href="/delete_meal/{{ meal.id }}">
+            <i class="fas fa-backspace float-end"></i>
+          </a>
         </div>
         <div class="card-body">
           <p class="card-text">{{ meal.meal_description}}</p>

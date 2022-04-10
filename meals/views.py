@@ -17,6 +17,12 @@ def toggle_planned(request, meal_id):
         meal.save()
         return redirect("home")
 
+def delete_meal(request, meal_id):
+    meal = get_object_or_404(Meal, id=meal_id)
+    meal.delete()
+    return redirect("home")
+
+
 # Create your views here.
 class MealList(LoginRequiredMixin, generic.ListView):
     model = Meal
