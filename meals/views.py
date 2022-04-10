@@ -39,20 +39,6 @@ class MealList(LoginRequiredMixin, generic.ListView):
         return render(request, self.template_name, context)
     
 
-# class ShopList(LoginRequiredMixin, generic.ListView):
-#     model = Meal
-#     template_name = "list.html"
-
-#     def get(self, request, *args, **kwargs):
-#         user = User.objects.get(pk=self.request.user.pk)
-#         user_meals = Meal.objects.filter(user=user)
-#         context = {
-#             'user_meals': user_meals,
-#             # "ingredient_form": IngredientForm()
-#         }
-#         return render(request, self.template_name, context)
-
-
 class ShopList(LoginRequiredMixin, generic.ListView):
     model = Meal
     template_name = "list.html"
@@ -62,6 +48,5 @@ class ShopList(LoginRequiredMixin, generic.ListView):
         user_meals = Meal.objects.filter(user=user)
         context = {
             'user_meals': user_meals,
-            # "ingredient_form": IngredientForm()
         }
         return render(request, self.template_name, context)

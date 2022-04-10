@@ -8,18 +8,8 @@
         {% if meal.planned %}
           {% for ingredient in meal.ingredients.all|dictsort:"in_stock" %}
             <li class="list-group-item" id="{ ingredient.name }">
-              <div class="form-check">
-                <input
-                  id="{{ ingredient.name }}-checkbox"
-                  class="form-check-input"
-                  type="checkbox"
-                  {% if ingredient.in_stock %}
-                  checked
-                  {% endif %}
-                /><label class="form-check-label" for="{{ ingredient.name }}"
-                  >{{ ingredient.name }} for: <strong>{{ meal.meal_name }}</strong></label
-                >
-              </div>
+                <p class="form-check-label" for="{{ ingredient.name }}">{{ ingredient.name }} for: <strong>{{ meal.meal_name }}</strong>
+                </p>
             </li>
           {% endfor %}
         {% endif %}
