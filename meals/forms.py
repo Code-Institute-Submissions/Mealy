@@ -1,4 +1,4 @@
-from .models import Meal
+from .models import Meal, Ingredient
 from django import forms
 
 
