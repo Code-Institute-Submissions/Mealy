@@ -172,3 +172,4 @@ All app's features and interactivity function as intended, various testings were
         
     - the django docs for helping me with syntax and best practice advice
     - the bootstrap docs for speeding up front end design.
+    - - crispy forms for the form libary
